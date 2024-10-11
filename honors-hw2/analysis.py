@@ -177,10 +177,14 @@ if __name__ == '__main__':
     generate_figure_1(rmm_np)
     generate_figure_12(rmm_np)
 
+    for i, z in enumerate(zs[:4]):
+        generate_figure_1(z, mode_no=i+1)
+        generate_figure_12(z, mode_no=i+1)
+
     '''
     for i, z in enumerate(zs):
         generate_figure_1(z, mode_no=i+1)
         #generate_figure_12(z, mode_no=i+1)
     '''
-    cumul_plot(zs, n=len(zs))
+    #cumul_plot(zs, n=len(zs))
     #cumul_plot(zs, n=5)

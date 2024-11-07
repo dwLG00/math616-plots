@@ -257,14 +257,18 @@ def generate_composite_plots(rmm_np, trad_ssa_zs, ssa_cp_zs):
     cp_component_2 = cp_component_2[start:]
 
     # Plot (a) and (d)
-    plt.plot(rmm_np[:, 0])
-    plt.plot(trad_component_1[:, 0])
-    plt.plot(cp_component_1[:, 0])
+    plt.plot(rmm_np[:, 0], label="Truth")
+    plt.plot(trad_component_1[:, 0], label="Trad RC")
+    plt.plot(cp_component_1[:, 0], label="SSA-CP")
+    plt.legend()
+    plt.title("RMM1 (Modes 1-2)")
     plt.show()
 
-    plt.plot(rmm_np[:, 0])
-    plt.plot(trad_component_2[:, 0])
-    plt.plot(cp_component_2[:, 0])
+    plt.plot(rmm_np[:, 0], label="Truth")
+    plt.plot(trad_component_2[:, 0], label="Trad RC")
+    plt.plot(cp_component_2[:, 0], label="SSA-CP")
+    plt.legend()
+    plt.title("RMM1 (Modes 1-4)")
     plt.show()
 
     # Correlation and RMSE
@@ -283,20 +287,28 @@ def generate_composite_plots(rmm_np, trad_ssa_zs, ssa_cp_zs):
     cp_rmse_2 = np.array([rmse(rmm_np[i:i+5, 0], cp_component_2[i:i+5, 0]) for i in range(N - 5)])
 
     # Plot (b), (c), (e), (f)
-    plt.plot(trad_corr_1)
-    plt.plot(cp_corr_1)
+    plt.plot(trad_corr_1, label="Trad SSA")
+    plt.plot(cp_corr_1, label="SSA-CP")
+    plt.legend()
+    plt.title("Correlation (Modes 1-2)")
     plt.show()
 
-    plt.plot(trad_rmse_1)
-    plt.plot(cp_rmse_1)
+    plt.plot(trad_rmse_1, label="Trad SSA")
+    plt.plot(cp_rmse_1, label="SSA-CP")
+    plt.legend()
+    plt.title("RMSE (Modes 1-2)")
     plt.show()
 
-    plt.plot(trad_corr_2)
-    plt.plot(cp_corr_2)
+    plt.plot(trad_corr_2, label="Trad SSA")
+    plt.plot(cp_corr_2, label="SSA-CP")
+    plt.legend()
+    plt.title("Correlation (Modes 1-4)")
     plt.show()
 
-    plt.plot(trad_rmse_2)
-    plt.plot(cp_corr_2)
+    plt.plot(trad_rmse_2, label="Trad SSA")
+    plt.plot(cp_corr_2, label="SSA-CP")
+    plt.legend()
+    plt.title("RMSE (Modes 1-4)")
     plt.show()
 
 if __name__ == '__main__':
